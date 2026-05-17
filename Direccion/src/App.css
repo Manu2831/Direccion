@@ -1,0 +1,139 @@
+﻿.app {
+  width: 100%;
+}
+
+.panel {
+  width: 100%;
+}
+
+.header h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: #f4f7ff;
+}
+
+.eyebrow {
+  display: none;
+}
+
+.subtitle {
+  color: #a9b2c6;
+  font-size: 0.85rem;
+  margin: 0 0 1.5rem;
+}
+
+.suggestions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #2a3140;
+  background: linear-gradient(180deg, #171d29 0%, #101622 100%);
+  color: #cfd6e6;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+
+.chip:hover:enabled {
+  border-color: #3a465b;
+  background: linear-gradient(180deg, #1c2432 0%, #121a29 100%);
+}
+
+.chat {
+  background: linear-gradient(180deg, #0e1523 0%, #0b111d 100%);
+  border: 1px solid #273147;
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 300px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 85%;
+  margin: 0;
+  border: 1px solid #2d374e;
+}
+
+.bubble.assistant {
+  background: linear-gradient(180deg, #2a3140 0%, #222a39 100%);
+  color: #e4e9f5;
+  align-self: flex-start;
+}
+
+.bubble.user {
+  background: linear-gradient(180deg, #2d2a1d 0%, #241f14 100%);
+  border-color: #6f5a2a;
+  color: #f3dea0;
+  align-self: flex-end;
+}
+
+.bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+}
+
+.composer textarea {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #2a3140;
+  resize: none;
+  font-family: inherit;
+  font-size: 0.88rem;
+  background: #0b111d;
+  color: #e2e8f7;
+}
+
+.composer textarea::placeholder {
+  color: #7f8ba5;
+}
+
+.composer button {
+  padding: 0 1rem;
+  min-width: 48px;
+  border-radius: 10px;
+  border: 1px solid #8c7436;
+  background: linear-gradient(180deg, #d2b05c 0%, #b7923f 100%);
+  color: #1a1509;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.composer button:hover:enabled {
+  filter: brightness(1.06);
+}
+
+.composer button:disabled,
+.chip:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ff8f8f;
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+}
