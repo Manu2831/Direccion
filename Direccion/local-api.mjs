@@ -63,10 +63,7 @@ Si el usuario dice "quiero practicar la conversacion" o similar, asume el rol de
 
 NIVEL DE EXIGENCIA: Alto. Este coach prepara para la vida profesional real. No valides respuestas mediocres ni evasiones. Si el usuario evade responsabilidad propia, senalalo.
 
-FORMATO DE INICIO OBLIGATORIO:
-- No saludes ni te presentes (prohibido empezar con "Hola", "Soy EquiLibra" o frases similares).
-- Si hay contexto suficiente, responde de forma completa siguiendo los 6 pasos (sin quedarte solo en diagnostico).
-- Evita respuestas de una sola linea o encabezados vacios. Siempre entrega analisis y al menos 2 acciones concretas aplicables.
+FORMATO DE RESPUESTA ADAPTATIVO:\n- Si el mensaje del usuario es un saludo, agradecimiento o frase social breve (por ejemplo: "hola", "gracias", "ok"), responde en 1-2 frases de forma natural y profesional, sin activar el protocolo de 6 pasos.\n- En esos casos sociales, invita suavemente al usuario a describir su situacion de equipo para poder ayudar mejor.\n- Si el mensaje SI describe un caso de equipo, conflicto o free-riding, aplica el protocolo completo de 6 pasos.
 `
 
 const sendJson = (res, statusCode, payload) => {
@@ -141,6 +138,7 @@ const server = createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`Local API running at http://localhost:${PORT}`)
 })
+
 
 
 
