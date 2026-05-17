@@ -1,27 +1,36 @@
-# EquiLibra Web (React + Vite + Netlify)
+# EquiLibra Web (React + Vite + Gemini + Netlify)
 
-Web sencilla para un coach IA de management de equipos (Belbin + free-riding) usando Gemini.
+App web para coaching de trabajo en equipo (Belbin + free-riding) con frontend React y backend serverless en Netlify.
 
-## Desarrollo local
+## Desarrollo local (sin Netlify)
+
+Usa dos terminales dentro de `Direccion/`:
 
 ```bash
 npm install
+npm run dev:api
 npm run dev
 ```
 
 ## Variables de entorno
 
-Crea `.env` localmente a partir de `.env.example` si vas a usar Netlify Dev.
+Crea `.env` a partir de `.env.example`:
 
 ```env
 GEMINI_API_KEY=tu_api_key
+API_PORT=8791
 ```
 
 ## Deploy en Netlify
 
-1. Sube este proyecto a tu repo.
-2. En Netlify: `Build command` = `npm run build`, `Publish directory` = `dist`.
-3. Agrega variable de entorno: `GEMINI_API_KEY`.
-4. Deploy.
+Si tu repo contiene esta app dentro de una subcarpeta, en Netlify configura:
 
-La ruta frontend `/api/chat` ya redirige a `/.netlify/functions/chat` por `netlify.toml`.
+- Base directory: `Direccion`
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+Variables de entorno en Netlify:
+
+- `GEMINI_API_KEY` = tu API key real
+
+La ruta frontend `/api/chat` se redirige a `/.netlify/functions/chat` por `netlify.toml`.
