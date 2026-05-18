@@ -102,7 +102,7 @@ function App() {
         </section>
 
         <footer className="creator-block">
-          <strong>Creador</strong>
+          <strong>Creadores</strong>
           Juan Manuel, Kevin, Robert y Dixon. Estudiantes
           de Ingenieria de Sistemas.
         </footer>
