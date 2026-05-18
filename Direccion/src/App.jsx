@@ -114,14 +114,6 @@ function App() {
             <h1>Coach de equipos y habilidades directivas</h1>
             <p>Diagnostico Belbin, manejo de free-riding y practica de conversaciones dificiles.</p>
           </div>
-          <div className="topbar-actions">
-            <button type="button" className="ghost-btn">
-              Nueva sesion
-            </button>
-            <button type="button" className="ghost-btn">
-              Exportar
-            </button>
-          </div>
         </header>
 
         <div className="chat-stage">
@@ -161,4 +153,3 @@ function App() {
 }
 
 export default App
-
