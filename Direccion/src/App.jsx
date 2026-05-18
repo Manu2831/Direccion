@@ -12,7 +12,7 @@ function App() {
     {
       role: 'assistant',
       content:
-        'Soy EquiLibra. Para empezar el diagnostico: ¿cuantos integrantes tiene tu grupo y que comportamientos concretos te hacen pensar en free-riding?'
+        'Soy BlackSay. Para empezar el diagnostico: ¿cuantos integrantes tiene tu grupo y que comportamientos concretos te hacen pensar en free-riding?'
     }
   ])
   const [input, setInput] = useState('')
@@ -63,51 +63,96 @@ function App() {
   }
 
   return (
-    <main className="app">
-      <section className="panel">
-        <header className="header">
-          <p className="eyebrow">Coach IA para trabajo en equipo</p>
-          <h1>EquiLibra</h1>
-          <p className="subtitle">
-            Diagnostica free-riding con roles de Belbin y recibe planes de accion
-            aplicables para tu equipo universitario.
+    <main className="page-shell">
+      <aside className="sidebar">
+        <header className="brand-lockup">
+          <span className="brand-mark" aria-hidden="true">
+            B
+          </span>
+          <h1 className="brand-name">Blacksay</h1>
+          <p className="brand-copy">
+            Asistente academico para convertir equipos desordenados en grupos con metas claras, responsabilidad
+            visible y conversaciones dificiles superadas.
           </p>
         </header>
 
-        <div className="suggestions" aria-label="Preguntas sugeridas">
-          {SUGGESTIONS.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className="chip"
-              onClick={() => sendMessage(item)}
-              disabled={isLoading}
-            >
-              {item}
-            </button>
-          ))}
+        <div className="status-strip">
+          <span className="status-pill">
+            <span className="status-dot" />
+            Sesion activa
+          </span>
         </div>
 
-        <div className="chat" role="log" aria-live="polite">
+        <section className="insight-box" aria-label="Preguntas sugeridas">
+          <p className="box-kicker">Metodo de trabajo</p>
+          <p>Analizo casos con roles de Belbin con evidencias de hechos para responder con diagnostico, rutas practicas y conversaciones concretas.</p>
+          <div className="method-list">
+            {SUGGESTIONS.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className="chip-btn"
+                onClick={() => sendMessage(item)}
+                disabled={isLoading}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <footer className="creator-block">
+          <strong>Creador</strong>
+          Juan Manuel, Kevin, Robert y Dixon. Estudiantes
+          de Ingenieria de Sistemas.
+        </footer>
+      </aside>
+
+      <section className="chat-panel">
+        <header className="topbar">
+          <div className="topbar-title">
+            <h1>Coach de equipos y habilidades directivas</h1>
+            <p>Diagnostico Belbin, manejo de free-riding y practica de conversaciones dificiles.</p>
+          </div>
+          <div className="topbar-actions">
+            <button type="button" className="ghost-btn">
+              Nueva sesion
+            </button>
+            <button type="button" className="ghost-btn">
+              Exportar
+            </button>
+          </div>
+        </header>
+
+        <div className="chat-stage">
+        <div id="chat" role="log" aria-live="polite">
           {messages.map((message, index) => (
-            <article key={`${message.role}-${index}`} className={`bubble ${message.role}`}>
-              <p>{message.content}</p>
+            <article key={`${message.role}-${index}`} className={`msg-row ${message.role === 'assistant' ? 'bot' : 'user'}`}>
+              <span className="message-label">{message.role === 'assistant' ? 'Blacksay' : 'Tu'}</span>
+              <div className={`bubble ${message.role === 'assistant' ? 'bot' : 'user'}`}>
+                <p>{message.content}</p>
+              </div>
             </article>
           ))}
         </div>
+        </div>
 
-        <form className="composer" onSubmit={onSubmit}>
-          <textarea
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-            placeholder="Describe tu caso: tamano del grupo, roles y comportamientos concretos..."
-            rows={3}
-            disabled={isLoading}
-          />
-          <button type="submit" disabled={isLoading || !input.trim()}>
-            {isLoading ? 'Analizando...' : 'Enviar'}
-          </button>
-        </form>
+        <div className="composer-zone">
+          <form className="input-shell" onSubmit={onSubmit}>
+            <textarea
+              id="inp"
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              placeholder="Describe la situacion de tu equipo..."
+              rows={1}
+              disabled={isLoading}
+            />
+            <button id="send-btn" type="submit" disabled={isLoading || !input.trim()}>
+              {isLoading ? '...' : '>'}
+            </button>
+          </form>
+          <p className="input-hint">Enter para enviar - Shift+Enter para nueva linea</p>
+        </div>
 
         {error ? <p className="error">{error}</p> : null}
       </section>
@@ -116,3 +161,4 @@ function App() {
 }
 
 export default App
+
